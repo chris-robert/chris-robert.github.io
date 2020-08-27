@@ -12,8 +12,10 @@
         var endDate = new Date()
         
         while( pointer <= endDate ){
-            if( pointer.getDay() != 0 && pointer.getDay() != 6 && Math.random() < .5 ){
-                container.innerHTML += template(pointer.toISOString().split("T")[0])+"</br>"
+            if( pointer.getDay() != 0 && pointer.getDay() != 6 ){
+                let date = pointer.toISOString().split("T")[0]
+                let entries = Math.floor(Math.random()*16+1)
+                while entries-->0 container.innerHTML += template(date)+"</br>"
             }
             pointer.setDate(pointer.getDate() + 1)
         }
