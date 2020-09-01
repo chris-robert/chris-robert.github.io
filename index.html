@@ -4,5 +4,19 @@
     </head>
     <body>
         Hello World
+        <div id="container"></div>
+        <script>
+        template = date => `GIT_COMMITTER_DATE="${date} 10:30 +0000" GIT_AUTHOR_DATE="${date} 10:30 +0000" git commit --allow-empty -m "Empty Commit"`
+        
+        var pointer = new Date("2020-08-27")
+        var endDate = new Date()
+        
+        while( pointer <= endDate ){
+            if( pointer.getDay() != 0 && pointer.getDay() != 6 && Math.random() < .5 ){
+                container.innerHTML += template(pointer.toISOString().split("T")[0])+"</br>"
+            }
+            pointer.setDate(pointer.getDate() + 1)
+        }
+        </script>
     </body>
 </html>
